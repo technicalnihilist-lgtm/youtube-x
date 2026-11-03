@@ -1,0 +1,13 @@
+# Gradle / Android
+build/
+.gradle/
+.kotlin/
+local.properties
+*.iml
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+*.jks
+*.keystore
+hs_err_pid*.log
