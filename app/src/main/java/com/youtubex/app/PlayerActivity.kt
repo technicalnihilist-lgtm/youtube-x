@@ -43,13 +43,11 @@ class PlayerActivity : AppCompatActivity() {
         setContentView(binding.root)
         YtClient.init(applicationContext)
 
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.toolbar.setNavigationOnClickListener { finish() }
-
         videoPageUrl = intent.getStringExtra(EXTRA_URL)
         binding.title.text = intent.getStringExtra(EXTRA_TITLE).orEmpty()
 
+        binding.btnCloseTop.setOnClickListener { finish() }
+        binding.btnClose.setOnClickListener { finish() }
         binding.btnExternal.setOnClickListener { openOnYouTube() }
 
         load()

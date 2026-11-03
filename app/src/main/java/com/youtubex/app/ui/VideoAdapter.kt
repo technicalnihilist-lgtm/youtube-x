@@ -2,6 +2,7 @@ package com.youtubex.app.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.youtubex.app.databinding.ItemVideoBinding
@@ -29,14 +30,28 @@ class VideoAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val item = items[position]
-        holder.binding.title.text = item.title
-        holder.binding.channel.text = item.uploader
-        holder.binding.meta.text = Formats.metaLine(item.durationSeconds, item.views)
+        val b = holder.binding
+
+        b.title.text = item.title
+        b.channel.text = item.uploader
+        b.meta.text = Formats.metaLine(item.durationSeconds, item.views)
+
+        val duration = Formats.duration(item.durationSeconds)
+        b.duration.text = duration
+        b.duration.isVisible = duration.isNotBlank()
+
         if (item.thumbnailUrl.isNotBlank()) {
-            holder.binding.thumb.load(item.thumbnailUrl)
+            b.thumb.load(item.thumbnailUrl)
         } else {
-            holder.binding.thumb.setImageDrawable(null)
+            b.thumb.setImageDrawable(null)
         }
-        holder.binding.root.setOnClickListener { onClick(item) }
+
+        if (item.avatarUrl.isNotBlank()) {
+            b.avatar.load(item.avatarUrl)
+        } else {
+            b.avatar.setImageDrawable(null)
+        }
+
+        b.root.setOnClickListener { onClick(item) }
     }
 }

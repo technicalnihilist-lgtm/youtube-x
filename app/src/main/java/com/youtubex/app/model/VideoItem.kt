@@ -6,7 +6,8 @@ data class VideoItem(
     val uploader: String,
     val durationSeconds: Long,
     val views: Long,
-    val thumbnailUrl: String
+    val thumbnailUrl: String,
+    val avatarUrl: String = ""
 )
 
 enum class SourceKind {
