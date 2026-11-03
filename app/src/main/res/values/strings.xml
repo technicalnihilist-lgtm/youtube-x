@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YouTube X</string>
+    <string name="search_hint">YouTube X par search karo</string>
+    <string name="now_playing">Ab chal raha hai</string>
+    <string name="open_on_youtube">YouTube par kholo</string>
+    <string name="thumbnail">Thumbnail</string>
+</resources>
