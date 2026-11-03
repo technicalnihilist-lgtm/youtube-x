@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">YouTube X</string>
-    <string name="search_hint">YouTube X par search karo</string>
+    <string name="search_hint">Search videos</string>
+    <string name="search_videos">Search videos</string>
+    <string name="cancel">Cancel</string>
     <string name="now_playing">Ab chal raha hai</string>
     <string name="open_on_youtube">YouTube par kholo</string>
+    <string name="close">Band karo</string>
     <string name="thumbnail">Thumbnail</string>
+    <string name="channel">Channel</string>
+    <string name="refresh">Refresh</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_explore">Explore</string>
+    <string name="tab_subs">Subs</string>
 </resources>

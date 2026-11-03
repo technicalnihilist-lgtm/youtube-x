@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#0B0B10</color>
+    <color name="ink">#F5F5F8</color>
+    <color name="mute">#9A9AA8</color>
+    <color name="red">#FF2D3D</color>
+    <color name="glass_hi">#805A5A6E</color>
+    <color name="glass_lo">#33282837</color>
+    <color name="glass_rim">#66FFFFFF</color>
+    <color name="shade">#8C000000</color>
+    <color name="badge_bg">#B3000000</color>
+    <color name="tint_red">#38FF466E</color>
+    <color name="tint_blue">#334678FF</color>
+    <color name="tint_violet">#2EA050FF</color>
+    <color name="skeleton">#1F78788C</color>
+    <color name="thumb_placeholder">#33FFFFFF</color>
+</resources>

@@ -2,13 +2,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.YouTubeX" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/brand_red</item>
-        <item name="colorSecondary">@color/brand_red_dark</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?android:attr/colorBackground</item>
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorSecondary">@color/red</item>
+        <item name="android:windowBackground">@drawable/bg_app</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:textColorPrimary">@color/ink</item>
     </style>
 
     <style name="Theme.YouTubeX.Player" parent="Theme.YouTubeX">
-        <item name="android:windowBackground">@color/black</item>
-        <item name="android:navigationBarColor" tools:targetApi="l">@color/black</item>
+        <item name="android:windowBackground">@drawable/bg_app</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Thumb" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
     </style>
 </resources>
