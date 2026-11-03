@@ -1,6 +1,6 @@
 # YouTube X
 
-![YouTube X UI preview](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.1/preview.png)
+![YouTube X UI preview](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.2/preview.png)
 
 > Upar wali image **UI preview (mockup)** hai — app ke asli layouts se banaya gaya render,
 > kisi phone ka screenshot nahi.
@@ -8,12 +8,15 @@
 Ek chhota Android app (Kotlin) jo YouTube ka data **NewPipeExtractor v0.26.5** se laata hai —
 search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
 
+UI liquid-glass shell hai: frosted glass pills, radial colour tints, 24dp rounded 16:9 cards,
+chips row aur neeche floating dock (Home / Explore / Subs + search button).
+
 ## Download APK
 
-**[YouTubeX-1.1-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 11.8 MB
+**[YouTubeX-1.2-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 11.9 MB
 
 Install: APK phone me copy karo → file manager se kholo → "unknown sources" allow karo → Install.
-Package `com.youtubex.app`, version 1.1 (versionCode 2), **minSdk 26** (Android 8.0+).
+Package `com.youtubex.app`, version 1.2 (versionCode 3), **minSdk 26** (Android 8.0+).
 
 APK debug-signed hai — apne phone par test karne ke liye theek, Play Store ke liye apna release
 keystore chahiye.
@@ -22,9 +25,11 @@ keystore chahiye.
 
 | Screen | Kya hota hai |
 | --- | --- |
-| Main screen | App khulte hi feed load hoti hai (pehla working kiosk, warna search fallback) |
-| Search | Search bar se YouTube search — title, channel, views, duration, thumbnail |
-| Player | Video tap → ExoPlayer (media3), plus "YouTube par kholo" button |
+| Home | App khulte hi feed load hoti hai (pehla working kiosk, warna search fallback) |
+| Chips | All / Anime / Cartoon / Movies / Music / Gaming — tap par us category ka search |
+| Explore | Full-screen glass search bar + results |
+| Subs | Login support nahi hai, isliye ek saaf message |
+| Player | Rounded 16:9 player + glass sheet, plus "YouTube par kholo" button |
 
 Stream chunne ka order: progressive (video+audio) → HLS → DASH.
 
@@ -46,16 +51,24 @@ Do choti baatein:
 
 ```
 app/src/main/java/com/youtubex/app/
-├── MainActivity.kt            search + feed screen
-├── PlayerActivity.kt          ExoPlayer playback screen
+├── MainActivity.kt            chips + feed + dock + search overlay
+├── PlayerActivity.kt          ExoPlayer playback screen (glass sheet)
 ├── data/DownloaderImpl.kt     NewPipeExtractor ka network layer (HttpURLConnection)
 ├── data/YtClient.kt           wrapper: search(), trending(), playable()
 ├── model/VideoItem.kt         VideoItem / Playable / SourceKind
-├── ui/VideoAdapter.kt         RecyclerView adapter (Coil thumbnails)
+├── ui/VideoAdapter.kt         card adapter (Coil thumbnails + avatars + duration badge)
 └── util/Formats.kt            duration / views formatting
 ```
 
 ## Changelog
+
+**v1.2** — UI redone as a liquid-glass shell
+- Frosted glass pills/circles (gradient + rim stroke), radial colour tints on the background
+- 24dp rounded 16:9 cards with duration badge, channel avatar, 2-line title
+- Chips row (All / Anime / Cartoon / Movies / Music / Gaming) and floating dock
+  (Home / Explore / Subs + round search button)
+- Full-screen search overlay; player screen with rounded video and glass sheet
+- Light + dark palettes (`values-night`)
 
 **v1.1**
 - Fix: app khulte hi feed load nahi hoti thi. NewPipeExtractor ka default YouTube kiosk (`live`)
@@ -69,6 +82,8 @@ app/src/main/java/com/youtubex/app/
 
 - APK build hua hai (AGP 8.5.2 / Gradle 8.9 / Kotlin 1.9.24) lekin kisi real device par install karke
   test nahi kiya gaya.
+- Glass effect native drawables se bana hai (real backdrop blur nahi) — ye Android 12+ ke
+  RenderEffect se aur close ho sakta hai.
 - YouTube kabhi kabhi stream URL par 403 deta hai (throttling); tab app error dikhata hai aur
   "YouTube par kholo" button kaam aata hai.
 - Age-restricted / members-only / login maangne wale videos nahi chalenge.

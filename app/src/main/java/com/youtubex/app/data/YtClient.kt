@@ -120,7 +120,8 @@ object YtClient {
         uploader = item.uploaderName.orEmpty(),
         durationSeconds = item.duration,
         views = item.viewCount,
-        thumbnailUrl = bestThumbnail(item.thumbnails)
+        thumbnailUrl = bestThumbnail(item.thumbnails),
+        avatarUrl = bestThumbnail(item.uploaderAvatars)
     )
 
     private fun bestThumbnail(images: List<Image>?): String {
