@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_red">#FF0033</color>
+    <color name="brand_red_dark">#CC0022</color>
+    <color name="thumb_placeholder">#33000000</color>
+    <color name="error_red">#FF5252</color>
+    <color name="black">#FF000000</color>
+</resources>
