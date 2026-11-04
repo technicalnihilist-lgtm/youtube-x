@@ -1,9 +1,10 @@
 # YouTube X
 
-![YouTube X — real device screenshots](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.4/preview.png)
+<img src="https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.5/ic_launcher_512.png" width="96" alt="YouTube X icon">
 
-> Upar wali image app ke **asli device screenshots** hain — Android phone par chalte app se liye gaye
-> (Home feed, chips: All / Movies / Gaming).
+![YouTube X — real device screenshots](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.5/preview.png)
+
+> Upar wali image app ke **asli device screenshots** hain — Home feed (All / Movies / Gaming) aur Search.
 
 Ek chhota Android app (Kotlin) jo YouTube ka data **NewPipeExtractor v0.26.5** se laata hai —
 search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
@@ -14,10 +15,11 @@ sheet animations.
 
 ## Download APK
 
-**[YouTubeX-1.4-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 11.9 MB
+**[YouTubeX-1.5-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 12.0 MB
 
 Install: APK phone me copy karo → file manager se kholo → "unknown sources" allow karo → Install.
-Package `com.youtubex.app`, version 1.4 (versionCode 5), **minSdk 26** (Android 8.0+).
+Package `com.youtubex.app`, version 1.5 (versionCode 6), **minSdk 26** (Android 8.0+).
+Naya icon dikhane ke liye purana app uninstall karke fresh install karna best hai.
 
 APK debug-signed hai — apne phone par test karne ke liye theek, Play Store ke liye apna release
 keystore chahiye.
@@ -68,14 +70,16 @@ app/src/main/java/com/youtubex/app/
 
 ## Changelog
 
-**v1.4** — HTML shell ke saath match
-- 4D depth effect: card par touch karte hi tilt + thumb raise, chhodne par spring wapas
-- Depth intensity slider (0–100%)
-- Bounce open/close aur macOS (genie) open/close sheet animations, mutually exclusive
-- Settings sheet me naye rows
+**v1.5** — naya app icon
+- Launcher icon: YouTube jaisa white screen + red play mark, neeche **"YouTube X"** — adaptive icon
+  (`mipmap-anydpi-v26`) plus mdpi…xxxhdpi PNGs
+- Recycler view fix: card ka tilt/scale recycled views par carry nahi hota
+- Screenshots updated (5 real device shots, search included)
 
-**v1.3** — poora shell: splash, Explore carousels, Subs grid, channel sheet, comments sheet,
-library sheet, settings, player actions, search suggestions, toasts
+**v1.4** — 4D depth effect + depth slider + bounce/macOS sheet animations
+
+**v1.3** — poora shell: splash, Explore carousels, Subs grid, channel/comments/library sheets,
+settings, player actions, search suggestions, toasts
 
 **v1.2** — liquid-glass UI (cards, chips, dock, glass sheets)
 
@@ -85,8 +89,8 @@ library sheet, settings, player actions, search suggestions, toasts
 
 ## Notes
 
-- APK debug-signed hai; real device par chalta hua screenshots me dikh raha hai, par har phone par
-  behaviour thoda alag ho sakta hai.
+- APK debug-signed hai; screenshots real device se hain, par har phone par behaviour thoda alag ho
+  sakta hai.
 - Glass effect native drawables se bana hai (real backdrop blur / SVG refraction nahi).
 - YouTube kabhi kabhi stream URL par 403 deta hai (throttling); tab app error dikhata hai aur
   "YouTube par kholo" button kaam aata hai.
