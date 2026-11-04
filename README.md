@@ -1,22 +1,23 @@
 # YouTube X
 
-![YouTube X UI preview](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.2/preview.png)
+![YouTube X UI preview](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.4/preview.png)
 
-> Upar wali image **UI preview (mockup)** hai — app ke asli layouts se banaya gaya render,
-> kisi phone ka screenshot nahi.
+> Upar wali image **UI preview (mockup render)** hai — Home, Explore aur Settings screens, kisi
+> phone ka screenshot nahi.
 
 Ek chhota Android app (Kotlin) jo YouTube ka data **NewPipeExtractor v0.26.5** se laata hai —
 search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
 
 UI liquid-glass shell hai: frosted glass pills, radial colour tints, 24dp rounded 16:9 cards,
-chips row aur neeche floating dock (Home / Explore / Subs + search button).
+chips row, floating dock (Home / Explore / Subs + search), 4D depth tilt aur bounce/macOS
+sheet animations.
 
 ## Download APK
 
-**[YouTubeX-1.2-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 11.9 MB
+**[YouTubeX-1.4-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 11.9 MB
 
 Install: APK phone me copy karo → file manager se kholo → "unknown sources" allow karo → Install.
-Package `com.youtubex.app`, version 1.2 (versionCode 3), **minSdk 26** (Android 8.0+).
+Package `com.youtubex.app`, version 1.4 (versionCode 5), **minSdk 26** (Android 8.0+).
 
 APK debug-signed hai — apne phone par test karne ke liye theek, Play Store ke liye apna release
 keystore chahiye.
@@ -25,11 +26,13 @@ keystore chahiye.
 
 | Screen | Kya hota hai |
 | --- | --- |
-| Home | App khulte hi feed load hoti hai (pehla working kiosk, warna search fallback) |
-| Chips | All / Anime / Cartoon / Movies / Music / Gaming — tap par us category ka search |
-| Explore | Full-screen glass search bar + results |
-| Subs | Login support nahi hai, isliye ek saaf message |
-| Player | Rounded 16:9 player + glass sheet, plus "YouTube par kholo" button |
+| Home | Feed (pehla working kiosk, warna search fallback), chips se category filter |
+| Explore | Anime / Cartoon / Movies / Music / Gaming / Tech ke horizontal carousels |
+| Subs | Subscribe kiye channels ka grid + latest videos (on-device) |
+| Search | Full-screen glass search bar + YouTube autocomplete chips |
+| Player | Rounded 16:9 ExoPlayer + glass sheet: Like, Save, Channel, Comments, YouTube, Close |
+| Sheets | Channel (subscribe + videos), Comments, Library (history/liked/later), Settings |
+| Settings | Theme, glass transparency, loop, **4D depth**, **depth intensity**, **bounce**, **macOS** animations |
 
 Stream chunne ka order: progressive (video+audio) → HLS → DASH.
 
@@ -51,39 +54,40 @@ Do choti baatein:
 
 ```
 app/src/main/java/com/youtubex/app/
-├── MainActivity.kt            chips + feed + dock + search overlay
-├── PlayerActivity.kt          ExoPlayer playback screen (glass sheet)
+├── MainActivity.kt            chips + feed + explore + subs + dock + search + sheets
+├── PlayerActivity.kt          ExoPlayer playback screen (glass sheet + actions)
+├── YtApp.kt                   theme (AppCompatDelegate) boot
 ├── data/DownloaderImpl.kt     NewPipeExtractor ka network layer (HttpURLConnection)
-├── data/YtClient.kt           wrapper: search(), trending(), playable()
+├── data/YtClient.kt           wrapper: search(), trending(), playable(), channel(), comments()
+├── data/Prefs.kt              history / liked / later / subs / settings (SharedPreferences)
 ├── model/VideoItem.kt         VideoItem / Playable / SourceKind
-├── ui/VideoAdapter.kt         card adapter (Coil thumbnails + avatars + duration badge)
+├── ui/VideoAdapter.kt         card adapter + 4D depth tilt
+├── ui/Ui.kt                   glass sheet show/hide (bounce & macOS animations), rows, toast
 └── util/Formats.kt            duration / views formatting
 ```
 
 ## Changelog
 
-**v1.2** — UI redone as a liquid-glass shell
-- Frosted glass pills/circles (gradient + rim stroke), radial colour tints on the background
-- 24dp rounded 16:9 cards with duration badge, channel avatar, 2-line title
-- Chips row (All / Anime / Cartoon / Movies / Music / Gaming) and floating dock
-  (Home / Explore / Subs + round search button)
-- Full-screen search overlay; player screen with rounded video and glass sheet
-- Light + dark palettes (`values-night`)
+**v1.4** — HTML shell ke saath match
+- 4D depth effect: card par touch karte hi tilt + thumb raise, chhodne par spring wapas
+- Depth intensity slider (0–100%)
+- Bounce open/close aur macOS (genie) open/close sheet animations, mutually exclusive
+- Settings sheet me naye rows
 
-**v1.1**
-- Fix: app khulte hi feed load nahi hoti thi. NewPipeExtractor ka default YouTube kiosk (`live`)
-  aur `Trending` dono NPE dete hain (YouTube ne Trending page hata diya). Ab app
-  `trending_music` → `trending_movies_and_shows` → baaki kiosks try karta hai, aur sab fail hone par
-  search-based feed dikhata hai.
+**v1.3** — poora shell: splash, Explore carousels, Subs grid, channel sheet, comments sheet,
+library sheet, settings, player actions, search suggestions, toasts
 
-**v1.0** — pehla build: search, feed, playback.
+**v1.2** — liquid-glass UI (cards, chips, dock, glass sheets)
+
+**v1.1** — feed fix (default YouTube kiosk `live` NPE)
+
+**v1.0** — pehla build
 
 ## Notes
 
 - APK build hua hai (AGP 8.5.2 / Gradle 8.9 / Kotlin 1.9.24) lekin kisi real device par install karke
   test nahi kiya gaya.
-- Glass effect native drawables se bana hai (real backdrop blur nahi) — ye Android 12+ ke
-  RenderEffect se aur close ho sakta hai.
+- Glass effect native drawables se bana hai (real backdrop blur / SVG refraction nahi).
 - YouTube kabhi kabhi stream URL par 403 deta hai (throttling); tab app error dikhata hai aur
   "YouTube par kholo" button kaam aata hai.
 - Age-restricted / members-only / login maangne wale videos nahi chalenge.
