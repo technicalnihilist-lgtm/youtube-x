@@ -1,9 +1,9 @@
 # YouTube X
 
-![YouTube X UI preview](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.4/preview.png)
+![YouTube X — real device screenshots](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.4/preview.png)
 
-> Upar wali image **UI preview (mockup render)** hai — Home, Explore aur Settings screens, kisi
-> phone ka screenshot nahi.
+> Upar wali image app ke **asli device screenshots** hain — Android phone par chalte app se liye gaye
+> (Home feed, chips: All / Movies / Gaming).
 
 Ek chhota Android app (Kotlin) jo YouTube ka data **NewPipeExtractor v0.26.5** se laata hai —
 search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
@@ -32,7 +32,7 @@ keystore chahiye.
 | Search | Full-screen glass search bar + YouTube autocomplete chips |
 | Player | Rounded 16:9 ExoPlayer + glass sheet: Like, Save, Channel, Comments, YouTube, Close |
 | Sheets | Channel (subscribe + videos), Comments, Library (history/liked/later), Settings |
-| Settings | Theme, glass transparency, loop, **4D depth**, **depth intensity**, **bounce**, **macOS** animations |
+| Settings | Theme, glass transparency, loop, 4D depth, depth intensity, bounce, macOS animations |
 
 Stream chunne ka order: progressive (video+audio) → HLS → DASH.
 
@@ -62,7 +62,7 @@ app/src/main/java/com/youtubex/app/
 ├── data/Prefs.kt              history / liked / later / subs / settings (SharedPreferences)
 ├── model/VideoItem.kt         VideoItem / Playable / SourceKind
 ├── ui/VideoAdapter.kt         card adapter + 4D depth tilt
-├── ui/Ui.kt                   glass sheet show/hide (bounce & macOS animations), rows, toast
+├── ui/Ui.kt                   glass sheet show/hide (bounce & macOS), rows, toast
 └── util/Formats.kt            duration / views formatting
 ```
 
@@ -85,8 +85,8 @@ library sheet, settings, player actions, search suggestions, toasts
 
 ## Notes
 
-- APK build hua hai (AGP 8.5.2 / Gradle 8.9 / Kotlin 1.9.24) lekin kisi real device par install karke
-  test nahi kiya gaya.
+- APK debug-signed hai; real device par chalta hua screenshots me dikh raha hai, par har phone par
+  behaviour thoda alag ho sakta hai.
 - Glass effect native drawables se bana hai (real backdrop blur / SVG refraction nahi).
 - YouTube kabhi kabhi stream URL par 403 deta hai (throttling); tab app error dikhata hai aur
   "YouTube par kholo" button kaam aata hai.
