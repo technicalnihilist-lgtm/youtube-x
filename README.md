@@ -1,24 +1,23 @@
 # YouTube X
 
-<img src="https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.5/ic_launcher_512.png" width="96" alt="YouTube X icon">
+<img src="https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.6/ic_launcher_512.png" width="110" alt="YouTube X icon">
 
-![YouTube X — real device screenshots](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.5/preview.png)
-
-> Upar wali image app ke **asli device screenshots** hain — Home feed (All / Movies / Gaming) aur Search.
+![YouTube X 1.5 poster](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.6/poster-1.5.png)
 
 Ek chhota Android app (Kotlin) jo YouTube ka data **NewPipeExtractor v0.26.5** se laata hai —
 search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
 
 UI liquid-glass shell hai: frosted glass pills, radial colour tints, 24dp rounded 16:9 cards,
 chips row, floating dock (Home / Explore / Subs + search), 4D depth tilt aur bounce/macOS
-sheet animations.
+sheet animations. Upar wala **1.5 poster APK ke andar** hai — splash screen par aur
+You → “What's new” sheet me.
 
 ## Download APK
 
-**[YouTubeX-1.5-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 12.0 MB
+**[YouTubeX-1.6-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 12.6 MB
 
 Install: APK phone me copy karo → file manager se kholo → "unknown sources" allow karo → Install.
-Package `com.youtubex.app`, version 1.5 (versionCode 6), **minSdk 26** (Android 8.0+).
+Package `com.youtubex.app`, version 1.6 (versionCode 7), **minSdk 26** (Android 8.0+).
 Naya icon dikhane ke liye purana app uninstall karke fresh install karna best hai.
 
 APK debug-signed hai — apne phone par test karne ke liye theek, Play Store ke liye apna release
@@ -28,12 +27,13 @@ keystore chahiye.
 
 | Screen | Kya hota hai |
 | --- | --- |
+| Splash | Logo + 1.5 poster banner, phir fade out |
 | Home | Feed (pehla working kiosk, warna search fallback), chips se category filter |
 | Explore | Anime / Cartoon / Movies / Music / Gaming / Tech ke horizontal carousels |
 | Subs | Subscribe kiye channels ka grid + latest videos (on-device) |
 | Search | Full-screen glass search bar + YouTube autocomplete chips |
 | Player | Rounded 16:9 ExoPlayer + glass sheet: Like, Save, Channel, Comments, YouTube, Close |
-| Sheets | Channel (subscribe + videos), Comments, Library (history/liked/later), Settings |
+| Sheets | Channel, Comments, Library (history/liked/later/What's new), Settings |
 | Settings | Theme, glass transparency, loop, 4D depth, depth intensity, bounce, macOS animations |
 
 Stream chunne ka order: progressive (video+audio) → HLS → DASH.
@@ -66,15 +66,20 @@ app/src/main/java/com/youtubex/app/
 ├── ui/VideoAdapter.kt         card adapter + 4D depth tilt
 ├── ui/Ui.kt                   glass sheet show/hide (bounce & macOS), rows, toast
 └── util/Formats.kt            duration / views formatting
+
+app/src/main/res/
+├── mipmap-*dpi/               naya icon (ic_launcher, ic_launcher_round, ic_launcher_foreground)
+├── mipmap-anydpi-v26/         adaptive icon
+└── drawable-nodpi/            poster_1_5.webp (splash + What's new sheet)
 ```
 
 ## Changelog
 
-**v1.5** — naya app icon
-- Launcher icon: YouTube jaisa white screen + red play mark, neeche **"YouTube X"** — adaptive icon
-  (`mipmap-anydpi-v26`) plus mdpi…xxxhdpi PNGs
-- Recycler view fix: card ka tilt/scale recycled views par carry nahi hota
-- Screenshots updated (5 real device shots, search included)
+**v1.6** — naya icon + 1.5 poster
+- Naya launcher icon (glossy black/red YouTube X), adaptive + all densities
+- 1.5 poster APK ke andar: splash banner aur You → “What's new” sheet
+
+**v1.5** — icon (YouTube screen + play mark + “YouTube X” text), tilt/scale leak fix
 
 **v1.4** — 4D depth effect + depth slider + bounce/macOS sheet animations
 
@@ -89,8 +94,7 @@ settings, player actions, search suggestions, toasts
 
 ## Notes
 
-- APK debug-signed hai; screenshots real device se hain, par har phone par behaviour thoda alag ho
-  sakta hai.
+- APK debug-signed hai; real device screenshots repo releases me hain.
 - Glass effect native drawables se bana hai (real backdrop blur / SVG refraction nahi).
 - YouTube kabhi kabhi stream URL par 403 deta hai (throttling); tab app error dikhata hai aur
   "YouTube par kholo" button kaam aata hai.
