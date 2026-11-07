@@ -1,6 +1,6 @@
 # YouTube X
 
-<img src="https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.6/ic_launcher_512.png" width="110" alt="YouTube X icon">
+<img src="https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.7/ic_launcher_512.png" width="110" alt="YouTube X icon">
 
 ![YouTube X 1.5 poster](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.6/poster-1.5.png)
 
@@ -9,16 +9,15 @@ search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
 
 UI liquid-glass shell hai: frosted glass pills, radial colour tints, 24dp rounded 16:9 cards,
 chips row, floating dock (Home / Explore / Subs + search), 4D depth tilt aur bounce/macOS
-sheet animations. Upar wala **1.5 poster APK ke andar** hai — splash screen par aur
-You → “What's new” sheet me.
+sheet animations. **1.5 poster APK ke andar** hai — splash screen par aur You → “What's new” sheet me.
 
 ## Download APK
 
-**[YouTubeX-1.6-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 12.6 MB
+**[YouTubeX-1.7-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 12.3 MB
 
 Install: APK phone me copy karo → file manager se kholo → "unknown sources" allow karo → Install.
-Package `com.youtubex.app`, version 1.6 (versionCode 7), **minSdk 26** (Android 8.0+).
-Naya icon dikhane ke liye purana app uninstall karke fresh install karna best hai.
+Package `com.youtubex.app`, version 1.7 (versionCode 8), **minSdk 26** (Android 8.0+).
+Icon ya poster update hone par purana app **uninstall karke** fresh install karo.
 
 APK debug-signed hai — apne phone par test karne ke liye theek, Play Store ke liye apna release
 keystore chahiye.
@@ -68,18 +67,20 @@ app/src/main/java/com/youtubex/app/
 └── util/Formats.kt            duration / views formatting
 
 app/src/main/res/
-├── mipmap-*dpi/               naya icon (ic_launcher, ic_launcher_round, ic_launcher_foreground)
-├── mipmap-anydpi-v26/         adaptive icon
+├── mipmap-*dpi/               icon (ic_launcher, ic_launcher_round, ic_launcher_foreground)
+├── mipmap-anydpi-v26/         adaptive icon (art 58% safe zone me)
 └── drawable-nodpi/            poster_1_5.webp (splash + What's new sheet)
 ```
 
 ## Changelog
 
-**v1.6** — naya icon + 1.5 poster
-- Naya launcher icon (glossy black/red YouTube X), adaptive + all densities
-- 1.5 poster APK ke andar: splash banner aur You → “What's new” sheet
+**v1.7** — icon size fix
+- Icon art ab launcher ke **safe zone (58%) me centre** hai, isliye mask hone par kuch cut nahi hota
+- Legacy icons halka inset (94%)
 
-**v1.5** — icon (YouTube screen + play mark + “YouTube X” text), tilt/scale leak fix
+**v1.6** — naya icon (glossy black/red) + 1.5 poster APK ke andar (splash + What's new sheet)
+
+**v1.5** — icon (YouTube screen + play mark + “YouTube X”), tilt/scale leak fix
 
 **v1.4** — 4D depth effect + depth slider + bounce/macOS sheet animations
 
