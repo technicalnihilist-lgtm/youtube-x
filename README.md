@@ -9,14 +9,14 @@ search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
 
 UI liquid-glass shell hai: frosted glass pills, radial colour tints, 24dp rounded 16:9 cards,
 chips row, floating dock (Home / Explore / Subs + search), 4D depth tilt aur bounce/macOS
-sheet animations. **1.5 poster APK ke andar** hai — splash screen par aur You → “What's new” sheet me.
+sheet animations. App khulte hi sirf **“YouTube X”** bounce karta hua dikhta hai, phir feed.
 
 ## Download APK
 
-**[YouTubeX-1.7-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 12.3 MB
+**[YouTubeX-1.8-debug.apk](https://github.com/technicalnihilist-lgtm/youtube-x/releases/latest)** — 12.3 MB
 
 Install: APK phone me copy karo → file manager se kholo → "unknown sources" allow karo → Install.
-Package `com.youtubex.app`, version 1.7 (versionCode 8), **minSdk 26** (Android 8.0+).
+Package `com.youtubex.app`, version 1.8 (versionCode 9), **minSdk 26** (Android 8.0+).
 Icon ya poster update hone par purana app **uninstall karke** fresh install karo.
 
 APK debug-signed hai — apne phone par test karne ke liye theek, Play Store ke liye apna release
@@ -26,7 +26,7 @@ keystore chahiye.
 
 | Screen | Kya hota hai |
 | --- | --- |
-| Splash | Logo + 1.5 poster banner, phir fade out |
+| Splash | Sirf “YouTube X” text, squash-and-hop bounce, ~0.8s baad fade out |
 | Home | Feed (pehla working kiosk, warna search fallback), chips se category filter |
 | Explore | Anime / Cartoon / Movies / Music / Gaming / Tech ke horizontal carousels |
 | Subs | Subscribe kiye channels ka grid + latest videos (on-device) |
@@ -35,7 +35,8 @@ keystore chahiye.
 | Sheets | Channel, Comments, Library (history/liked/later/What's new), Settings |
 | Settings | Theme, glass transparency, loop, 4D depth, depth intensity, bounce, macOS animations |
 
-Stream chunne ka order: progressive (video+audio) → HLS → DASH.
+Stream chunne ka order: progressive (video+audio) → HLS → DASH. 1.5 poster app ke andar hai
+(`drawable-nodpi/poster_1_5.webp`) aur You → “What's new” sheet me dikhta hai.
 
 ## Build
 
@@ -55,7 +56,7 @@ Do choti baatein:
 
 ```
 app/src/main/java/com/youtubex/app/
-├── MainActivity.kt            chips + feed + explore + subs + dock + search + sheets
+├── MainActivity.kt            splash + chips + feed + explore + subs + dock + search + sheets
 ├── PlayerActivity.kt          ExoPlayer playback screen (glass sheet + actions)
 ├── YtApp.kt                   theme (AppCompatDelegate) boot
 ├── data/DownloaderImpl.kt     NewPipeExtractor ka network layer (HttpURLConnection)
@@ -67,18 +68,19 @@ app/src/main/java/com/youtubex/app/
 └── util/Formats.kt            duration / views formatting
 
 app/src/main/res/
+├── anim/splash_bounce.xml     splash ka squash-and-hop bounce
 ├── mipmap-*dpi/               icon (ic_launcher, ic_launcher_round, ic_launcher_foreground)
 ├── mipmap-anydpi-v26/         adaptive icon (art 58% safe zone me)
-└── drawable-nodpi/            poster_1_5.webp (splash + What's new sheet)
+└── drawable-nodpi/            poster_1_5.webp
 ```
 
 ## Changelog
 
-**v1.7** — icon size fix
-- Icon art ab launcher ke **safe zone (58%) me centre** hai, isliye mask hone par kuch cut nahi hota
-- Legacy icons halka inset (94%)
+**v1.8** — naya splash: sirf “YouTube X”, bounce karta hua; logo mark, poster aur loader hata diye
 
-**v1.6** — naya icon (glossy black/red) + 1.5 poster APK ke andar (splash + What's new sheet)
+**v1.7** — icon size fix (art launcher ke safe zone me)
+
+**v1.6** — naya icon (glossy black/red) + 1.5 poster APK ke andar
 
 **v1.5** — icon (YouTube screen + play mark + “YouTube X”), tilt/scale leak fix
 
