@@ -1,8 +1,6 @@
 # YouTube X
 
-<img src="https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.7/ic_launcher_512.png" width="110" alt="YouTube X icon">
-
-![YouTube X 1.5 poster](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.6/poster-1.5.png)
+<img src="https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.8/store-icon.png" width="110" alt="YouTube X icon">
 
 Ek chhota Android app (Kotlin) jo YouTube ka data **NewPipeExtractor v0.26.5** se laata hai —
 search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
@@ -10,6 +8,14 @@ search, feed aur in-app video playback. Koi login nahi, koi ads nahi.
 UI liquid-glass shell hai: frosted glass pills, radial colour tints, 24dp rounded 16:9 cards,
 chips row, floating dock (Home / Explore / Subs + search), 4D depth tilt aur bounce/macOS
 sheet animations. App khulte hi sirf **“YouTube X”** bounce karta hua dikhta hai, phir feed.
+
+## Screenshots
+
+![All feed](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.8/screenshot-1.jpg)
+![Movies](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.8/screenshot-2.jpg)
+![Movies list](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.8/screenshot-3.jpg)
+![Gaming](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.8/screenshot-4.jpg)
+![Search](https://github.com/technicalnihilist-lgtm/youtube-x/releases/download/v1.8/screenshot-5.jpg)
 
 ## Download APK
 
@@ -97,7 +103,7 @@ settings, player actions, search suggestions, toasts
 
 ## Notes
 
-- APK debug-signed hai; real device screenshots repo releases me hain.
+- APK debug-signed hai; screenshots real device se hain.
 - Glass effect native drawables se bana hai (real backdrop blur / SVG refraction nahi).
 - YouTube kabhi kabhi stream URL par 403 deta hai (throttling); tab app error dikhata hai aur
   "YouTube par kholo" button kaam aata hai.
