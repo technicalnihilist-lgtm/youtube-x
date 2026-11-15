@@ -110,3 +110,17 @@ settings, player actions, search suggestions, toasts
 - Age-restricted / members-only / login maangne wale videos nahi chalenge.
 - NewPipeExtractor **GPL-3.0** hai, isliye ye project bhi GPL-3.0 hai. YouTube ke Terms of Service ka
   khayal rakho — personal use theek hai, Play Store publish risky hai.
+
+---
+
+## ☕ Donate / Buy me a coffee
+
+**Coming soon** — our donation options are on the way.
+
+| Platform | Status |
+| --- | --- |
+| Paytm | Coming soon |
+| PayPal | Coming soon |
+| GPay (Google Pay) | Coming soon |
+
+If you like our work, you can support us with a donation. We are bringing this very soon — **coming soon**.
